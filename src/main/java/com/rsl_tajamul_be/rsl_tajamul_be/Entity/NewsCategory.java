@@ -17,4 +17,7 @@ public class NewsCategory {
 
     @Column
     private String categoryType;
+
+
+
 }
