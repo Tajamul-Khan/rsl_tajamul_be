@@ -37,14 +37,14 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public News updateNews(Long newsId, News news) {
-        News editNews = newsRepository.findById(newsId).get();
+        News updatedNews = newsRepository.findById(newsId).get();
 
-        if (Objects.nonNull(news.getNewsTitle()) && !" ".equalsIgnoreCase(news.getNewsTitle())){
-            editNews.setNewsTitle(news.getNewsTitle());
+        if (Objects.nonNull(news.getNewsTitle()) && !" ".equalsIgnoreCase(news.getNewsTitle())) {
+            updatedNews.setNewsTitle(news.getNewsTitle());
         }
-        if (Objects.nonNull(news.getNewsDescription()) && !" ".equalsIgnoreCase(news.getNewsDescription())){
-            editNews.setNewsDescription(news.getNewsDescription());
+        if (Objects.nonNull(news.getNewsDescription()) && !" ".equalsIgnoreCase(news.getNewsDescription())) {
+            updatedNews.setNewsDescription(news.getNewsDescription());
         }
-        return newsRepository.save(editNews);
+        return newsRepository.save(updatedNews);
     }
 }

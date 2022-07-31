@@ -11,31 +11,32 @@ import java.util.ArrayList;
 public class NewsController {
     @Autowired
     private NewsService newsService;
+
     @PostMapping("/saveNews")
-    public News saveNews(@RequestBody News news){
+    public News saveNews(@RequestBody News news) {
         return newsService.saveNews(news);
     }
+
     @GetMapping("/getNews")
-    public ArrayList<News> getNews(){
+    public ArrayList<News> getNews() {
         return newsService.getNews();
     }
 
     @GetMapping("/getNews/{id}")
-    public News getNewsById(@PathVariable("id")Long newsId){
+    public News getNewsById(@PathVariable("id") Long newsId) {
         return newsService.getNewsById(newsId);
     }
-    @DeleteMapping ("/ deleteNews/{id}")
-   public String deleteNewsId(@PathVariable("id") Long newsId){
+
+    @DeleteMapping("/ deleteNews/{id}")
+    public String deleteNewsId(@PathVariable("id") Long newsId) {
         newsService.deleteNews(newsId);
         return "newsDeleted";
     }
+
     @PutMapping("/updateNews/{id}")
-    public News updateNews(@PathVariable("id")Long newsId,@RequestBody News news){
-        return newsService.updateNews(newsId,news);
+    public News updateNews(@PathVariable("id") Long newsId, @RequestBody News news) {
+        return newsService.updateNews(newsId, news);
     }
-
-
-
 
 
 }
